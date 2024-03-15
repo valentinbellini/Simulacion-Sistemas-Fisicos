@@ -5,7 +5,7 @@ addpath('metodosIntegracion');
 total_time = 15;
 h = 0.1;
 
-% Llamar a la función masares con feuler
+% Llamar a la función masares    con feuler
 [t_feuler, x_feuler] = feuler(@masares, [0; 0], h, 0, total_time);
 
 % Llamar a la función masares con beuler
