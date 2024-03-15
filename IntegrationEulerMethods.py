@@ -68,7 +68,7 @@ m = 1.0  # Masa
 k = 1.0  # Constante del resorte
 b = 1.0  # Coeficiente de fricción
 total_time = 13.0  # Tiempo total de simulación
-h_values = [0.01, 0.1, 0.25, 0.5, 0.75, 1.0]  # Valores de h que deseas probar
+h_values = [0.01, 0.25, 0.5, 0.75, 1.0]  # Valores de h que deseas probar
 
 fig, (ax1, ax2) = plt.subplots(2)
 fig.suptitle('Simulación de un sistema masa-resorte con fuerza externa constante')
