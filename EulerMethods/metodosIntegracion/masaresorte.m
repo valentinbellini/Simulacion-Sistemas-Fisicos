@@ -18,7 +18,7 @@ figure;
 subplot(1, 2, 1);
 plot(t_feuler, x_feuler);
 xlabel('Tiempo');
-ylabel('Posición');
+ylabel('Posición / Velocidad');
 title('Fordward Euler');
 grid on;
 
@@ -26,7 +26,7 @@ grid on;
 subplot(1, 2, 2);
 plot(t_beuler, x_beuler);
 xlabel('Tiempo');
-ylabel('Posición');
+ylabel('Posición / Velocidad');
 title('Backward Euler');
 grid on;
 
