@@ -10,7 +10,7 @@ salida sobre la resistencia de carga `R` cuyo valor medio es una fracción de la
 relación entre las tensiones de entrada y salida la determina el ciclo de trabajo, es decir, la fracción de
 tiempo que la llave permanece cerrada.
 
-![circuito-buck](circuito-buck.jpeg)
+![circuito-buck](/Convertidor-Buck/images/circuito-buck.jpeg)
 
 Trabajaremos modelando y simulando este circuito bajo diferentes hipótesis.
 
@@ -20,7 +20,7 @@ Si consideramos que la llave y el diodo son ideales y que el diodo no conduce cu
 cerrada y es un conductor ideal con la llave está abierta, podemos plantear las siguientes ecuaciones para
 el modelo:
 
-![Ecuaciones-modelo-ideal](ecuaciones-ideal.jpeg)
+![Ecuaciones-modelo-ideal](/Convertidor-Buck/images/ecuaciones-ideal.jpeg)
 
 donde uSD(t) e iSD(t) representan la tensión y corriente a la izquierda de la inductancia y s(t) es una
 señal de entrada conocida que vale 1 si la llave está cerrada y 0 si la llave está abierta.
@@ -55,7 +55,7 @@ resistencia de conducción `Ron` cuando están cerrados y una gran resistencia d
 Con esta idea, podemos modificar el sistema de la ecuación ideal como sigue:
 
 
-![Ecuaciones-modelo-real](ecuaciones-real.jpeg)
+![Ecuaciones-modelo-real](/Convertidor-Buck/images/ecuaciones-real.jpeg)
 
 Ahora para este nuevo modelo realizaremos las siguientes tareas:
 
