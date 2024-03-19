@@ -1,4 +1,5 @@
 % Función que permita evaluar la derivada del vector de estados en función del estado y del tiempo. 
+% En este codigo se modela dx para el caso simplificado del circuito buck.
 
 function dx=buck(x,t)
     L=1e-4; C=1e-4; R=10; %parametros
