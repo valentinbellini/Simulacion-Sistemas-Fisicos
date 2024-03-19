@@ -1,6 +1,8 @@
 function dx=circuit_ode(x,t)
-    F = @(z) circuit_dae(x,z(1:2),z(3:10),t);
-    z0=zeros(10,1);
-    z=fsolve(F,z0);
-    dx=z(1:2);
+    q=x(1); phi=x(2); %estados
+    R=1; L=1; C=1; %parametros
+    v=sin(t); %entrada
+    der_q=phi/L;
+    der_phi=-q/C-R/L*phi+v;
+    dx=[der_q; der_phi]; %vector de derivadas
 end
