@@ -7,7 +7,7 @@ x0 = [0 ;0];
 t0 = 0;
 tf = 0.01;
 
-% Pasos de integracion (array)
+% Pasos de integracion
 h = [1e-5, 1e-6];
 
 % Calcular solución para h = 1e-5
