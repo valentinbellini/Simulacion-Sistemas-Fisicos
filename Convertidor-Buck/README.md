@@ -32,11 +32,11 @@ U = 12V, L = 10^(−4)Hy, C = 10^(−4)F y R = 10Ω.
 Vamos a dividir el trabajo a realizar en 6 pasos:
 
 - Obtener las ecuaciones de estado
-- Buscar solución analítica de las ecuaciones de estado
-- Utilizar el método de Forward Euler
-- Utilizar el método de Heun
-- Utilizar el método de Runge Kutta con Control de Paso
-- Simulación del modelo Conmutado
+- Buscar [solución analítica](/Convertidor-Buck/solucionAnalitica.m) de las ecuaciones de estado
+- Utilizar el [método de Forward Euler](/Convertidor-Buck/p3SimuladoForwardEuler.m) para una primer aproximación
+- Utilizar el [método de Heun](/Convertidor-Buck/p4SimuladoHeun.m)
+- Utilizar el [método de Runge Kutta](/Convertidor-Buck/p5RKControlDePaso.m) con Control de Paso
+- Simulación del [modelo en conmutación](/Convertidor-Buck/p6SimuladoModeloConmutado.m): Para esto se utiliza un nuevo modelo [buck1](./funciones/buck1.m) para lograr la simulación con heun y rk23.
 
 ## 3. Análisis con un modelo mas realista
 
@@ -60,4 +60,5 @@ Con esta idea, podemos modificar el sistema de la ecuación ideal como sigue:
 Ahora para este nuevo modelo realizaremos las siguientes tareas:
 
 - Obtención de las ecuaciones de estado
-- Simulación del modelo conmutado con Backward Euler
+- Simulación del modelo conmutado con [Backward Euler](/Convertidor-Buck/Soluciones/p8SimulacionModeloRealista5.m) para varios pasos de integración.
+- Implementación del modelo en [OpenModelica](/Convertidor-Buck/buck2.mo) para ver diferentes comportamientos del sistema al cambiar parámetros.

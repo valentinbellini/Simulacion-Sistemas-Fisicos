@@ -11,7 +11,7 @@ tf = 0.01;
 
 % ------ UTILIZANDO HEUN ------
 % Pasos de integracion
-h = [1e-5 2e-5 1e-6];
+h = [2e-5 1e-5 1e-6];
 
 figure;
 for i = 1:length(h)
@@ -27,12 +27,18 @@ for i = 1:length(h)
 end
 
 % ------ UTILIZANDO RK23 ------ 
+figure;
 rtol = 1e-3;
 atol = 1e-6;
 [t, x] = rk23(@buck1, x0, t0, tf, rtol, atol);
+subplot(2,1,1);
 plot(t,x(1,:));
 hold on;
 plot(t,x(2,:));
 title(['Método RK23 rtol = ', num2str(rtol)]);
 legend('il', 'uc');
 grid on;
+subplot(2,1,2);
+plot(diff(t));
+title("Pasos de integracion")
+

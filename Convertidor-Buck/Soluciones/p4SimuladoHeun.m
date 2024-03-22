@@ -14,7 +14,6 @@ figure;
 for i = 1:length(h)
     % Calcular solución para el paso h(i)
     [t, x] = heun(@buck, x0, h(i), t0, tf);
-    
     % Subplot para el paso h(i)
     subplot(length(h), 1, i);
     plot(t, x(1, :));
