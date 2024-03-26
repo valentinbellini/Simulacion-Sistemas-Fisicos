@@ -10,7 +10,7 @@ salida sobre la resistencia de carga `R` cuyo valor medio es una fracción de la
 relación entre las tensiones de entrada y salida la determina el ciclo de trabajo, es decir, la fracción de
 tiempo que la llave permanece cerrada.
 
-![circuito-buck](/Convertidor-Buck/images/circuito-buck.jpeg)
+![circuito-buck](/Sistemas/Convertidor-Buck/images/circuito-buck.jpeg)
 
 Trabajaremos modelando y simulando este circuito bajo diferentes hipótesis.
 
@@ -20,7 +20,7 @@ Si consideramos que la llave y el diodo son ideales y que el diodo no conduce cu
 cerrada y es un conductor ideal con la llave está abierta, podemos plantear las siguientes ecuaciones para
 el modelo:
 
-![Ecuaciones-modelo-ideal](/Convertidor-Buck/images/ecuaciones-ideal.jpeg)
+![Ecuaciones-modelo-ideal](/Sistemas/Convertidor-Buck/images/ecuaciones-ideal.jpeg)
 
 donde uSD(t) e iSD(t) representan la tensión y corriente a la izquierda de la inductancia y s(t) es una
 señal de entrada conocida que vale 1 si la llave está cerrada y 0 si la llave está abierta.
@@ -32,11 +32,11 @@ U = 12V, L = 10^(−4)Hy, C = 10^(−4)F y R = 10Ω.
 Vamos a dividir el trabajo a realizar en 6 pasos:
 
 - Obtener las ecuaciones de estado
-- Buscar [solución analítica](/Convertidor-Buck/solucionAnalitica.m) de las ecuaciones de estado
-- Utilizar el [método de Forward Euler](/Convertidor-Buck/p3SimuladoForwardEuler.m) para una primer aproximación
-- Utilizar el [método de Heun](/Convertidor-Buck/p4SimuladoHeun.m)
-- Utilizar el [método de Runge Kutta](/Convertidor-Buck/p5RKControlDePaso.m) con Control de Paso
-- Simulación del [modelo en conmutación](/Convertidor-Buck/p6SimuladoModeloConmutado.m): Para esto se utiliza un nuevo modelo [buck1](./funciones/buck1.m) para lograr la simulación con heun y rk23.
+- Buscar [solución analítica](/Sistemas/Convertidor-Buck/solucionAnalitica.m) de las ecuaciones de estado
+- Utilizar el [método de Forward Euler](/Sistemas/Convertidor-Buck/p3SimuladoForwardEuler.m) para una primer aproximación
+- Utilizar el [método de Heun](/Sistemas/Convertidor-Buck/p4SimuladoHeun.m)
+- Utilizar el [método de Runge Kutta](/Sistemas/Convertidor-Buck/p5RKControlDePaso.m) con Control de Paso
+- Simulación del [modelo en conmutación](/Sistemas/Convertidor-Buck/p6SimuladoModeloConmutado.m): Para esto se utiliza un nuevo modelo [buck1](/Sistemas/Convertidor-Buck/funciones/buck.m) para lograr la simulación con heun y rk23.
 
 ## 3. Análisis con un modelo mas realista
 
@@ -55,10 +55,10 @@ resistencia de conducción `Ron` cuando están cerrados y una gran resistencia d
 Con esta idea, podemos modificar el sistema de la ecuación ideal como sigue:
 
 
-![Ecuaciones-modelo-real](/Convertidor-Buck/images/ecuaciones-real.jpeg)
+![Ecuaciones-modelo-real](/Sistemas/Convertidor-Buck/images/ecuaciones-real.jpeg)
 
 Ahora para este nuevo modelo realizaremos las siguientes tareas:
 
 - Obtención de las ecuaciones de estado
-- Simulación del modelo conmutado con [Backward Euler](/Convertidor-Buck/Soluciones/p8SimulacionModeloRealista5.m) para varios pasos de integración.
-- Implementación del modelo en [OpenModelica](/Convertidor-Buck/buck2.mo) para ver diferentes comportamientos del sistema al cambiar parámetros.
+- Simulación del modelo conmutado con [Backward Euler](/Sistemas/Convertidor-Buck/Soluciones/p8SimulacionModeloRealista5.m) para varios pasos de integración.
+- Implementación del modelo en [OpenModelica](/Sistemas/Convertidor-Buck/buck2.mo) para ver diferentes comportamientos del sistema al cambiar parámetros.
