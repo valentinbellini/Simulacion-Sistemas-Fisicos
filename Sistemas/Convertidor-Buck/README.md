@@ -32,11 +32,11 @@ U = 12V, L = 10^(−4)Hy, C = 10^(−4)F y R = 10Ω.
 Vamos a dividir el trabajo a realizar en 6 pasos:
 
 - Obtener las ecuaciones de estado
-- Buscar [solución analítica](/Sistemas/Convertidor-Buck/solucionAnalitica.m) de las ecuaciones de estado
-- Utilizar el [método de Forward Euler](/Sistemas/Convertidor-Buck/p3SimuladoForwardEuler.m) para una primer aproximación
-- Utilizar el [método de Heun](/Sistemas/Convertidor-Buck/p4SimuladoHeun.m)
-- Utilizar el [método de Runge Kutta](/Sistemas/Convertidor-Buck/p5RKControlDePaso.m) con Control de Paso
-- Simulación del [modelo en conmutación](/Sistemas/Convertidor-Buck/p6SimuladoModeloConmutado.m): Para esto se utiliza un nuevo modelo [buck1](/Sistemas/Convertidor-Buck/funciones/buck.m) para lograr la simulación con heun y rk23.
+- Buscar [solución analítica](/Sistemas/Convertidor-Buck/Soluciones/p1SolucionAnalitica.m) de las ecuaciones de estado
+- Utilizar el [método de Forward Euler](/Sistemas/Convertidor-Buck/Soluciones/p3SimuladoForwardEuler.m) para una primer aproximación
+- Utilizar el [método de Heun](/Sistemas/Convertidor-Buck/Soluciones/p4SimuladoHeun.m.m)
+- Utilizar el [método de Runge Kutta](/Sistemas/Convertidor-Buck/Soluciones/p5RKControlDePaso.m.m) con Control de Paso
+- Simulación del [modelo en conmutación](/Sistemas/Convertidor-Buck/Soluciones/p6SimuladoModeloConmutado.m.m): Para esto se utiliza un nuevo modelo [buck1](/Sistemas/Convertidor-Buck/funciones/buck.m) para lograr la simulación con heun y rk23.
 
 ## 3. Análisis con un modelo mas realista
 
