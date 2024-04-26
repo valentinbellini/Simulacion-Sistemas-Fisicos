@@ -38,5 +38,8 @@ Para poder utilizar los datos de las trayectorias filmadas en las etapas posteri
 
 Utilizando Modelica se contruye un modelo matemático con los parámetros medidos y utilizando valores arbitrarios con los parámetros que no se pudieron medir (como la fricción). Utilizaremos una función para la relación no lineal de la deformación medida, la misma está definida en [LookUpTable](/Sistemas/Pelota-rebotando/LookUpTable.mo).
 
-Luego, se elige una de las trayectorias filmadas y trackeadas y se compara con la simulación del modelo para ajustar los parámetros del mismo. Una vez calibrado, se compara los resultados con la segunda trayectoria para corroborar que los resultados son los mismos. En este punto se ha realizado y verificado correctamente el modelado de un sistema real.
+Luego, se elige una de las trayectorias filmadas y trackeadas y se compara con la simulación del modelo para ajustar los parámetros del mismo. Una vez calibrado, se compara los resultados con la segunda trayectoria para corroborar que los resultados son los mismos. En este punto se ha realizado y verificado correctamente el modelado de un sistema real. Se puede ver los resultados de la simulación en [Bball](/Sistemas/Pelota-rebotando/BBall.mo).
+
+## Extensión del modelo a dos dimensiones.
+Se extiende el modelo a dos dimensiones suponiendo la presencia de un frontón. Si se asume que ambos movimientos están desacoplados, se puede lograr esto creando un nuevo modelo que contenga dos instancias del modelo del movimiento vertical, una de ellas con el parámetro que representa la gravedad `g` cambiado a un valor nulo. Notar que, para simular el movimiento horizontal, se debe dar una condición inicial positiva a la posición y una negativa a la velocidad (de modo que la pelota comience a la derecha del frontón y avance hacia él). Se puede ver los resultados de la simulación en el modelo [Bball_2D.mo](/Sistemas/Pelota-rebotando/BBal_2D.mo).
 

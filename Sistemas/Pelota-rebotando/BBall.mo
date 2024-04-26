@@ -1,7 +1,7 @@
 model BBall
   Boolean contact(start=false);
-  Real y_cm(start=2.0533), v_cm(start=0.0), F_m, F_g, F_aire, F_piso, F_res, delta_y;
-  parameter Real b_aire=0.0, b_piso=2.5, g=9.81, m=0.026, r=0.0381/2;
+  Real y_cm(start=1.57), v_cm(start=-0.9), F_m, F_g, F_aire, F_piso, F_res, delta_y;
+  parameter Real b_aire=0.02, b_piso=2.5, g=9.81, m=0.026, r=0.0381/2;
 equation
   
   m*der(v_cm)- F_m = 0;
