@@ -1,5 +1,5 @@
-# Virtual environment
-/venv
+# Ignorar la carpeta de entornos virtuales
+venv/
 
 # Compiled Python files
 __pycache__/
