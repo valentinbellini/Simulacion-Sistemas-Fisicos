@@ -28,20 +28,19 @@ package DSFLib
         n.i + p.i = 0;
       end OnePort;
 
-      partial model TwoPort
-        "Component with two electrical ports, including current"
+      partial model TwoPort "Component with two electrical ports, including current"
         Voltage v1 "Voltage drop of port 1 (= p1.v - n1.v)";
         Voltage v2 "Voltage drop of port 2 (= p2.v - n2.v)";
         Current i1 "Current flowing from pos. to neg. pin of port 1";
         Current i2 "Current flowing from pos. to neg. pin of port 2";
-        DSFLib.Circuits.Interfaces.Pin p1 "Positive electrical pin of port 1" annotation (Placement(
-              transformation(extent={{-110,90},{-90,110}}), iconTransformation(extent={{-110,90},{-90,110}})));
-        DSFLib.Circuits.Interfaces.Pin n1 "Negative electrical pin of port 1" annotation (Placement(
-              transformation(extent={{-90,-110},{-110,-90}}), iconTransformation(extent={{-90,-110},{-110,-90}})));
-        DSFLib.Circuits.Interfaces.Pin p2 "Positive electrical pin of port 2" annotation (Placement(
-              transformation(extent={{110,90},{90,110}}), iconTransformation(extent={{110,90},{90,110}})));
-        DSFLib.Circuits.Interfaces.Pin n2 "Negative electrical pin of port 2" annotation (Placement(
-              transformation(extent={{90,-110},{110,-90}}), iconTransformation(extent={{90,-110},{110,-90}})));
+        DSFLib.Circuits.Interfaces.Pin p1 "Positive electrical pin of port 1" annotation(
+          Placement(transformation(extent = {{-110, 90}, {-90, 110}}), iconTransformation(extent = {{-110, 90}, {-90, 110}})));
+        DSFLib.Circuits.Interfaces.Pin n1 "Negative electrical pin of port 1" annotation(
+          Placement(transformation(extent = {{-90, -110}, {-110, -90}}), iconTransformation(extent = {{-90, -110}, {-110, -90}})));
+        DSFLib.Circuits.Interfaces.Pin p2 "Positive electrical pin of port 2" annotation(
+          Placement(transformation(extent = {{110, 90}, {90, 110}}), iconTransformation(extent = {{110, 90}, {90, 110}})));
+        DSFLib.Circuits.Interfaces.Pin n2 "Negative electrical pin of port 2" annotation(
+          Placement(transformation(extent = {{90, -110}, {110, -90}}), iconTransformation(extent = {{90, -110}, {110, -90}})));
       equation
         v1 = p1.v - n1.v;
         v2 = p2.v - n2.v;
@@ -49,61 +48,15 @@ package DSFLib
         0 = p2.i + n2.i;
         i1 = p1.i;
         i2 = p2.i;
-        annotation (
-          Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2}),               graphics={
-              Polygon(
-                points={{-124,103},{-114,100},{-124,97},{-124,103}},
-                lineColor={160,160,164},
-                fillColor={160,160,164},
-                fillPattern=FillPattern.Solid),
-              Line(points={{-140,100},{-115,100}},
-                                                 color={160,160,164}),
-              Polygon(
-                points={{130,-97},{140,-100},{130,-103},{130,-97}},
-                lineColor={160,160,164},
-                fillColor={160,160,164},
-                fillPattern=FillPattern.Solid),
-              Line(points={{114,-100},{139,-100}},
-                                                 color={160,160,164}),
-              Text(
-                extent={{113,-96},{129,-81}},
-                lineColor={160,160,164},
-                textString="i2"),
-              Text(
-                extent={{122,102},{139,117}},
-                lineColor={160,160,164},
-                textString="i2"),
-              Polygon(
-                points={{124,103},{114,100},{124,97},{124,103}},
-                lineColor={160,160,164},
-                fillPattern=FillPattern.HorizontalCylinder,
-                fillColor={160,160,164}),
-              Line(points={{115,100},{140,100}}, color={160,160,164}),
-              Line(points={{-140,-100},{-115,-100}},
-                                                   color={160,160,164}),
-              Polygon(
-                points={{-130,-97},{-140,-100},{-130,-103},{-130,-97}},
-                lineColor={160,160,164},
-                fillColor={160,160,164},
-                fillPattern=FillPattern.Solid),
-              Text(
-                extent={{-131,-97},{-114,-82}},
-                lineColor={160,160,164},
-                textString="i1"),
-              Text(
-                extent={{-140,103},{-123,118}},
-                lineColor={160,160,164},
-                textString="i1")}),
-          Documentation(revisions="<html>
+        annotation(
+          Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}, grid = {2, 2}), graphics = {Polygon(points = {{-124, 103}, {-114, 100}, {-124, 97}, {-124, 103}}, lineColor = {160, 160, 164}, fillColor = {160, 160, 164}, fillPattern = FillPattern.Solid), Line(points = {{-140, 100}, {-115, 100}}, color = {160, 160, 164}), Polygon(points = {{130, -97}, {140, -100}, {130, -103}, {130, -97}}, lineColor = {160, 160, 164}, fillColor = {160, 160, 164}, fillPattern = FillPattern.Solid), Line(points = {{114, -100}, {139, -100}}, color = {160, 160, 164}), Text(extent = {{113, -96}, {129, -81}}, lineColor = {160, 160, 164}, textString = "i2"), Text(extent = {{122, 102}, {139, 117}}, lineColor = {160, 160, 164}, textString = "i2"), Polygon(points = {{124, 103}, {114, 100}, {124, 97}, {124, 103}}, lineColor = {160, 160, 164}, fillPattern = FillPattern.HorizontalCylinder, fillColor = {160, 160, 164}), Line(points = {{115, 100}, {140, 100}}, color = {160, 160, 164}), Line(points = {{-140, -100}, {-115, -100}}, color = {160, 160, 164}), Polygon(points = {{-130, -97}, {-140, -100}, {-130, -103}, {-130, -97}}, lineColor = {160, 160, 164}, fillColor = {160, 160, 164}, fillPattern = FillPattern.Solid), Text(extent = {{-131, -97}, {-114, -82}}, lineColor = {160, 160, 164}, textString = "i1"), Text(extent = {{-140, 103}, {-123, 118}}, lineColor = {160, 160, 164}, textString = "i1")}),
+          Documentation(revisions = "<html>
       <ul>
       <li><em> 1998   </em>
            by Christoph Clauss<br> initially implemented<br>
            </li>
       </ul>
-      </html>", info="<html>
+      </html>", info = "<html>
       <p>TwoPort is a partial model that consists of two ports. Like OnePort each port has two pins. It is assumed that the current flowing into the positive  pin   is identical to the current flowing out of pin n. This currents of each port are  provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
       </html>"));
       end TwoPort;
@@ -185,7 +138,8 @@ package DSFLib
           Icon(graphics = {Ellipse(lineColor = {0, 0, 255}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-50, 50}, {50, -50}}), Line(points = {{-80, 20}, {-60, 20}}, color = {0, 0, 255}), Text(extent = {{-150, -110}, {150, -70}}, textString = "V=%V"), Line(points = {{60, 20}, {80, 20}}, color = {0, 0, 255}), Text(textColor = {0, 0, 255}, extent = {{-150, 70}, {150, 110}}, textString = "%name"), Line(points = {{-90, 0}, {-50, 0}}, color = {0, 0, 255}), Line(points = {{-50, 0}, {50, 0}}, color = {0, 0, 255}), Line(points = {{50, 0}, {90, 0}}, color = {0, 0, 255}), Line(points = {{-70, 30}, {-70, 10}}, color = {0, 0, 255})}));
       end ConstVolt;
 
-      model NLInductor  // Inductor no lineal
+      model NLInductor
+        // Inductor no lineal
         extends OnePort;
         parameter Real[:] currTable = {-2, -1, 0, 1, 2};
         parameter Real[:] fluxTable = {-2, -1, 0, 1, 2};
@@ -198,13 +152,12 @@ package DSFLib
       end NLInductor;
 
       model Transformer "Transformer with two ports"
-        extends DSFLib.Circuits.Interfaces.TwoPort(i1(start=0),i2(start=0));
+        extends DSFLib.Circuits.Interfaces.TwoPort(i1(start = 0), i2(start = 0));
         parameter Real L1 = 1, L2 = 1, M = 1;
         Real dv "Difference between voltage drop over primary inductor and voltage drop over secondary inductor";
       equation
         v1 = L1*der(i1) + M*der(i2);
-      
-        /* Original equation:
+/* Original equation:
             v2 = M*der(i1) + L2*der(i2);
          If L1 = L2 = M, then this model has one state less. However,
          it might be difficult for a tool to detect this. For this reason
@@ -212,168 +165,39 @@ package DSFLib
       */
         dv = (L1 - M)*der(i1) + (M - L2)*der(i2);
         v2 = v1 - dv;
-      
-        annotation (
-          Documentation(info="<html>
+        annotation(
+          Documentation(info = "<html>
       <p>The transformer is a two port. The left port voltage <em>v1</em>, left port current <em>i1</em>, right port voltage <em>v2</em> and right port current <em>i2</em> are connected by the following relation:</p>
       <pre>         | v1 |         | L1   M  |  | i1&#39; |
              |    |    =    |         |  |     |
              | v2 |         | M    L2 |  | i2&#39; |</pre>
       <p><em>L1</em>, <em>L2</em>, and <em>M</em> are the primary, secondary, and coupling inductances respectively.</p>
-      </html>", revisions="<html>
+      </html>", revisions = "<html>
       <ul>
       <li><em> 1998   </em>
            by Christoph Clauss<br> initially implemented<br>
            </li>
       </ul>
       </html>"),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}}), graphics={
-              Text(
-                extent={{-150,150},{150,110}},
-                textString="%name",
-                lineColor={0,0,255}),
-              Text(
-                extent={{-20,-60},{20,-100}},
-                textString="M",
-                lineColor={0,0,255}),
-              Line(points={{-40,60},{-40,100},{-90,100}}, color={0,0,255}),
-              Line(points={{40,60},{40,100},{90,100}}, color={0,0,255}),
-              Line(points={{-40,-60},{-40,-100},{-90,-100}}, color={0,0,255}),
-              Line(points={{40,-60},{40,-100},{90,-100}}, color={0,0,255}),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={-33,45},
-                rotation=270),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={-33,15},
-                rotation=270),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={-33,-15},
-                rotation=270),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={-33,-45},
-                rotation=270),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={33,45},
-                rotation=90),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={33,15},
-                rotation=90),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={33,-15},
-                rotation=90),
-              Line(
-                points={{-15,-7},{-14,-1},{-7,7},{7,7},{14,-1},{15,-7}},
-                color={0,0,255},
-                smooth=Smooth.Bezier,
-                origin={33,-45},
-                rotation=90),
-              Text(
-                extent={{-100,20},{-58,-20}},
-                textString="L1",
-                lineColor={0,0,255}),
-              Text(
-                extent={{60,20},{100,-20}},
-                textString="L2",
-                lineColor={0,0,255})}));
+          Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}), graphics = {Text(extent = {{-150, 150}, {150, 110}}, textString = "%name", lineColor = {0, 0, 255}), Text(extent = {{-20, -60}, {20, -100}}, textString = "M", lineColor = {0, 0, 255}), Line(points = {{-40, 60}, {-40, 100}, {-90, 100}}, color = {0, 0, 255}), Line(points = {{40, 60}, {40, 100}, {90, 100}}, color = {0, 0, 255}), Line(points = {{-40, -60}, {-40, -100}, {-90, -100}}, color = {0, 0, 255}), Line(points = {{40, -60}, {40, -100}, {90, -100}}, color = {0, 0, 255}), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {-33, 45}, rotation = 270), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {-33, 15}, rotation = 270), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {-33, -15}, rotation = 270), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {-33, -45}, rotation = 270), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {33, 45}, rotation = 90), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {33, 15}, rotation = 90), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {33, -15}, rotation = 90), Line(points = {{-15, -7}, {-14, -1}, {-7, 7}, {7, 7}, {14, -1}, {15, -7}}, color = {0, 0, 255}, smooth = Smooth.Bezier, origin = {33, -45}, rotation = 90), Text(extent = {{-100, 20}, {-58, -20}}, textString = "L1", lineColor = {0, 0, 255}), Text(extent = {{60, 20}, {100, -20}}, textString = "L2", lineColor = {0, 0, 255})}));
       end Transformer;
 
       model SineVoltage "Sine voltage source"
-  extends DSFLib.Circuits.Interfaces.OnePort;
+        extends DSFLib.Circuits.Interfaces.OnePort;
         parameter Real f = 1;
         parameter Real A = 1;
       equation
         v = A*sin(2*3.1415*f*time);
-        annotation (
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                  100}}), graphics={Line(points={{-66,0},{-56.2,29.9},{-49.8,46.5},
-                    {-44.2,58.1},{-39.3,65.2},{-34.3,69.2},{-29.4,69.8},{-24.5,67},
-                    {-19.6,61},{-14.6,52},{-9,38.6},{-1.98,18.6},{12.79,-26.9},{
-                    19.1,-44},{24.8,-56.2},{29.7,-64},{34.6,-68.6},{39.5,-70},{44.5,
-                    -67.9},{49.4,-62.5},{54.3,-54.1},{59.9,-41.3},{67,-21.7},{74,0}},
-                  color={192,192,192})}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                  100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={
-                192,192,192}),Polygon(
-                  points={{-80,100},{-86,84},{-74,84},{-80,100}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-99,-40},{100,-40}},
-                color={192,192,192}),Polygon(
-                  points={{100,-40},{84,-34},{84,-46},{100,-40}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-41,-2},{-32.6,32.2},{-27.1,51.1},{-22.3,64.4},{-18.1,
-                  72.6},{-13.9,77.1},{-8,78},{-5.42,74.6},{-1.201,67.7},{3.02,57.4},
-                  {7.84,42.1},{13.9,19.2},{26.5,-32.8},{32,-52.2},{36.8,-66.2},{41,
-                  -75.1},{45.2,-80.4},{49.5,-82},{53.7,-79.6},{57.9,-73.5},{62.1,-63.9},
-                  {66.9,-49.2},{73,-26.8},{79,-2}},
-                  thickness=0.5),Line(
-                  points={{-41,-2},{-80,-2}},
-                  thickness=0.5),Text(
-                  extent={{-106,-11},{-60,-29}},
-                  lineColor={160,160,164},
-                  textString="offset"),Line(
-                  points={{-41,-2},{-41,-40}},
-                  color={192,192,192},
-                  pattern=LinePattern.Dash),Text(
-                  extent={{-60,-43},{-14,-61}},
-                  lineColor={160,160,164},
-                  textString="startTime"),Text(
-                  extent={{76,-52},{100,-72}},
-                  lineColor={160,160,164},
-                  textString="time"),Line(
-                  points={{-8,78},{45,78}},
-                  color={192,192,192},
-                  pattern=LinePattern.Dash),Line(
-                  points={{-41,-2},{52,-2}},
-                  color={192,192,192},
-                  pattern=LinePattern.Dash),Polygon(
-                  points={{33,78},{30,65},{37,65},{33,78}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{37,57},{83,39}},
-                  lineColor={160,160,164},
-                  textString="V"),Polygon(
-                  points={{33,-2},{30,11},{36,11},{33,-2},{33,-2}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{33,78},{33,-2}},
-                  color={192,192,192}),Text(
-                  extent={{-69,109},{-4,83}},
-                  lineColor={160,160,164},
-                  textString="v = p.v - n.v")}),
-          Documentation(revisions="<html>
+        annotation(
+          Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}), graphics = {Line(points = {{-66, 0}, {-56.2, 29.9}, {-49.8, 46.5}, {-44.2, 58.1}, {-39.3, 65.2}, {-34.3, 69.2}, {-29.4, 69.8}, {-24.5, 67}, {-19.6, 61}, {-14.6, 52}, {-9, 38.6}, {-1.98, 18.6}, {12.79, -26.9}, {19.1, -44}, {24.8, -56.2}, {29.7, -64}, {34.6, -68.6}, {39.5, -70}, {44.5, -67.9}, {49.4, -62.5}, {54.3, -54.1}, {59.9, -41.3}, {67, -21.7}, {74, 0}}, color = {192, 192, 192})}),
+          Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100, -100}, {100, 100}}), graphics = {Line(points = {{-80, -90}, {-80, 84}}, color = {192, 192, 192}), Polygon(points = {{-80, 100}, {-86, 84}, {-74, 84}, {-80, 100}}, lineColor = {192, 192, 192}, fillColor = {192, 192, 192}, fillPattern = FillPattern.Solid), Line(points = {{-99, -40}, {100, -40}}, color = {192, 192, 192}), Polygon(points = {{100, -40}, {84, -34}, {84, -46}, {100, -40}}, lineColor = {192, 192, 192}, fillColor = {192, 192, 192}, fillPattern = FillPattern.Solid), Line(points = {{-41, -2}, {-32.6, 32.2}, {-27.1, 51.1}, {-22.3, 64.4}, {-18.1, 72.6}, {-13.9, 77.1}, {-8, 78}, {-5.42, 74.6}, {-1.201, 67.7}, {3.02, 57.4}, {7.84, 42.1}, {13.9, 19.2}, {26.5, -32.8}, {32, -52.2}, {36.8, -66.2}, {41, -75.1}, {45.2, -80.4}, {49.5, -82}, {53.7, -79.6}, {57.9, -73.5}, {62.1, -63.9}, {66.9, -49.2}, {73, -26.8}, {79, -2}}, thickness = 0.5), Line(points = {{-41, -2}, {-80, -2}}, thickness = 0.5), Text(extent = {{-106, -11}, {-60, -29}}, lineColor = {160, 160, 164}, textString = "offset"), Line(points = {{-41, -2}, {-41, -40}}, color = {192, 192, 192}, pattern = LinePattern.Dash), Text(extent = {{-60, -43}, {-14, -61}}, lineColor = {160, 160, 164}, textString = "startTime"), Text(extent = {{76, -52}, {100, -72}}, lineColor = {160, 160, 164}, textString = "time"), Line(points = {{-8, 78}, {45, 78}}, color = {192, 192, 192}, pattern = LinePattern.Dash), Line(points = {{-41, -2}, {52, -2}}, color = {192, 192, 192}, pattern = LinePattern.Dash), Polygon(points = {{33, 78}, {30, 65}, {37, 65}, {33, 78}}, lineColor = {192, 192, 192}, fillColor = {192, 192, 192}, fillPattern = FillPattern.Solid), Text(extent = {{37, 57}, {83, 39}}, lineColor = {160, 160, 164}, textString = "V"), Polygon(points = {{33, -2}, {30, 11}, {36, 11}, {33, -2}, {33, -2}}, lineColor = {192, 192, 192}, fillColor = {192, 192, 192}, fillPattern = FillPattern.Solid), Line(points = {{33, 78}, {33, -2}}, color = {192, 192, 192}), Text(extent = {{-69, 109}, {-4, 83}}, lineColor = {160, 160, 164}, textString = "v = p.v - n.v")}),
+          Documentation(revisions = "<html>
       <ul>
       <li><em> 1998   </em>
            by Christoph Clauss<br> initially implemented<br>
            </li>
       </ul>
-      </html>", info="<html>
+      </html>", info = "<html>
       <p>This voltage source uses the corresponding signal source of the Modelica.Blocks.Sources package. Care for the meaning of the parameters in the Blocks package. Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
       </html>"));
       end SineVoltage;
@@ -526,7 +350,7 @@ package DSFLib
       end SolarPanels;
 
       model Halfwave
-  SineVoltage sineVoltage(A = 220*sqrt(2), f = 50);
+        SineVoltage sineVoltage(A = 220*sqrt(2), f = 50);
         Transformer transformer(L1 = 0.02, L2 = 0.1, M = 0.04);
         DSFLib.Circuits.Components.Resistor Rs(R = 0.1);
         DSFLib.Circuits.Components.Resistor RL;
@@ -910,7 +734,7 @@ package DSFLib
         end ConstTorque;
 
         model ConstSpeedSource
-  DSFLib.Mechanical.Rotational.Interfaces.Flange flange;
+          DSFLib.Mechanical.Rotational.Interfaces.Flange flange;
           parameter Real w = 1;
         equation
           w = der(flange.phi);
@@ -1474,6 +1298,49 @@ package DSFLib
         annotation(
           Icon(graphics = {Text(origin = {-17, 107}, rotation = 180, extent = {{-181, 18}, {131, -21}}, textString = "Q=%Q"), Polygon(fillColor = {255, 255, 255}, pattern = LinePattern.None, fillPattern = FillPattern.HorizontalCylinder, points = {{-28, 30}, {-28, -30}, {50, -2}, {-28, 30}}), Polygon(lineColor = {0, 0, 255}, pattern = LinePattern.None, fillPattern = FillPattern.VerticalCylinder, points = {{-48, -60}, {-72, -100}, {72, -100}, {48, -60}, {-48, -60}}), Rectangle(fillColor = {0, 127, 255}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-100, 32}, {100, -32}}), Ellipse(fillColor = {26, 182, 199}, fillPattern = FillPattern.Sphere, extent = {{-80, 80}, {80, -80}}), Polygon(origin = {5, -3}, fillColor = {0, 170, 255}, fillPattern = FillPattern.Solid, points = {{-33, 51}, {49, 1}, {-33, -43}, {-33, 49}, {-33, 51}}), Text(origin = {0, -200}, textColor = {0, 0, 255}, extent = {{-150, 90}, {150, 50}}, textString = "%name")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
       end IdealPump;
+
+      model OpenTank
+        DSFLib.Hydraulics.Interfaces.FluidPort fluidPort;
+        parameter Real A(unit = "m^2") = 1 "Tank area";
+        parameter Real g(unit = "m/s^2") = 9.8;
+        parameter Real rho(unit = "Kg/m^3") = 1000 "Fluid density";
+        Real v(unit = "m^3");
+        DSFLib.Hydraulics.Units.VolumeFlow q;
+        DSFLib.Hydraulics.Units.Pressure p;
+        DSFLib.Hydraulics.Units.Pressure dp;
+        DSFLib.ControlSystems.Blocks.Interfaces.RealOutput h;
+        DSFLib.Hydraulics.Interfaces.FluidPort fluidPort_up;
+      equation
+        q = der(v);
+        p = rho*g*h;
+        dp = if v > 0 then 0 else 1e10*q;
+        q = fluidPort.q + fluidPort_up.q;
+        fluidPort.p = p + dp;
+        fluidPort_up.p = 0;
+        h = v/A;
+      end OpenTank;
+
+      model DeltaPress
+        parameter Pressure dP = 0;
+        extends TwoPort;
+      equation
+        p = dP;
+        annotation(
+          Icon(graphics = {Rectangle(origin = {71, 0}, fillColor = {0, 127, 255}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-29, 32}, {29, -32}}), Rectangle(origin = {-71, 0}, fillColor = {0, 127, 255}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-29, 32}, {29, -32}}), Ellipse(fillColor = {0, 170, 255}, fillPattern = FillPattern.Sphere, extent = {{-80, 80}, {80, -80}}), Text(origin = {0, -200}, textColor = {0, 0, 255}, extent = {{-150, 90}, {150, 50}}, textString = "%name"), Text(origin = {-21, 94}, rotation = 180, extent = {{-199, 17}, {145, -24}}, textString = "ΔP=%dP")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
+      end DeltaPress;
+
+      model ModulatedValve2
+        extends DSFLib.Hydraulics.Interfaces.TwoPort;
+        ControlSystems.Blocks.Interfaces.RealInput u annotation(
+          Placement(transformation(origin = {0, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90), iconTransformation(origin = {0, 52}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+        parameter Real G = 1e-5;
+      equation
+        q = min(max(u, 0), 1)*G*sqrt(abs(p))*sign(p);
+        annotation(
+          Icon(graphics = {Polygon(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, points = {{-100, 50}, {100, -50}, {100, 50}, {0, 0}, {-100, -50}, {-100, 50}}), Line(points = {{-25, 40}, {25, 40}}, color = // Línea horizontal
+          {0, 0, 0}, thickness = 2), Line(points = {{0, 0}, {0, 40}}, color = // Línea vertical
+          {0, 0, 0}, thickness = 1), Text(origin = {0, 14}, textColor = {0, 0, 255}, extent = {{-150, 90}, {150, 50}}, textString = "%name"), Text(origin = {2, -18}, extent = {{-144, -34}, {144, -68}}, textString = "G=%G")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
+      end ModulatedValve2;
     end Components;
 
     package Examples
@@ -1637,13 +1504,20 @@ package DSFLib
           Real w(unit = "rad/s");
           parameter Real K(unit = "V.s/rad") = 1;
         equation
-          e = p.v - n.v;    // Ec. de OnePort (fem)
-          p.i = i;          // Ec. de OnePort
-          n.i + p.i = 0;    // Ec. de OnePort
-          e = K*w;          // Ec. del motor
-          tau = K*i;        // Ec. del motor
-          tau = -flange.tau;  // Torque que brinda el motor al resto (torque que da es "menos" el que redibe (entrante)
-          w = der(flange.phi); // Velocidad del motor es la derivada del ángulo
+          e = p.v - n.v;
+// Ec. de OnePort (fem)
+          p.i = i;
+// Ec. de OnePort
+          n.i + p.i = 0;
+// Ec. de OnePort
+          e = K*w;
+// Ec. del motor
+          tau = K*i;
+// Ec. del motor
+          tau = -flange.tau;
+// Torque que brinda el motor al resto (torque que da es "menos" el que redibe (entrante)
+          w = der(flange.phi);
+// Velocidad del motor es la derivada del ángulo
           annotation(
             Icon(graphics = {Ellipse(extent = {{-86, 84}, {86, -84}}), Rectangle(origin = {66, 1}, fillColor = {240, 240, 240}, fillPattern = FillPattern.HorizontalCylinder, extent = {{-66, 7}, {66, -7}})}));
         end EMF;
@@ -1665,16 +1539,18 @@ package DSFLib
           parameter Real[:] currTable = {-2, -1, 0, 1, 2};
           parameter Real[:] fluxTable = {-2, -1, 0, 1, 2};
           DSFLib.Circuits.Units.Voltage e;
-          DSFLib.Circuits.Units.Current i; 
-          DSFLib.Mechanical.Rotational.Units.Torque tau; 
+          DSFLib.Circuits.Units.Current i;
+          DSFLib.Mechanical.Rotational.Units.Torque tau;
           Real w(unit = "rad/s");
           parameter Real K(unit = "1/rad") = 1;
         equation
           e = p.v - n.v;
           p.i = i;
           n.i + p.i = 0;
-          e = K*inductor.phi*w;   // Fem dependiente del inductor no lineal
-          tau = K*inductor.phi*i; // Torque dependiente del inductor no lineal
+          e = K*inductor.phi*w;
+// Fem dependiente del inductor no lineal
+          tau = K*inductor.phi*i;
+// Torque dependiente del inductor no lineal
           tau = -flange.tau;
           w = der(flange.phi);
           connect(p_ex, inductor.p) annotation(
@@ -1944,39 +1820,35 @@ package DSFLib
     end HydroMechanical;
 
     package HydroThermal
-package Components
-  import DSFLib.Thermal.Units.*;
-  import DSFLib.Thermal.Interfaces.*;
-  import DSFLib.Hydraulics.Units.*;
-  import DSFLib.Hydraulics.Interfaces.*;
+      package Components
+        import DSFLib.Thermal.Units.*;
+        import DSFLib.Thermal.Interfaces.*;
+        import DSFLib.Hydraulics.Units.*;
+        import DSFLib.Hydraulics.Interfaces.*;
 
-  model Convection
-    extends DSFLib.Hydraulics.Interfaces.TwoPort;
-    DSFLib.Thermal.Interfaces.HeatPort heatPort_a annotation(
-      Placement(visible = true, transformation(origin = {100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -60}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
-    DSFLib.Thermal.Interfaces.HeatPort heatPort_b annotation(
-      Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
-    Temperature T;
-    HeatFlow q_heat;
-    parameter Real rho(unit = "Kg/m3") = 1000 "Fluid density";
-    parameter Real c(unit = "J/K/Kg") = 4184 "Fluid specific heat capacity";
-  equation
-    p = 0;
-    q_heat = heatPort_b.q;
-    q_heat = -heatPort_a.q;
-    T = if q >= 0 then heatPort_b.T else heatPort_a.T;
-    q_heat = rho*c*q*T;
-    annotation(
-      Icon(graphics = {Rectangle(origin = {2, -51}, rotation = 90, fillColor = {0, 170, 255}, fillPattern = FillPattern.VerticalCylinder, extent = {{-49, 102}, {91, -98}}), Polygon(origin = {68, 0}, rotation = -90, lineColor = {0, 170, 255}, fillColor = {0, 170, 255}, fillPattern = FillPattern.Solid, points = {{0, 10}, {12, -12}, {-12, -12}, {0, 10}}), Rectangle(origin = {-8, 2.5}, rotation = 90, lineColor = {0, 170, 255}, fillColor = {0, 170, 255}, fillPattern = FillPattern.Solid, extent = {{-7, 69}, {3, -69}}), Text(origin = {0, 18}, textColor = {0, 0, 255}, extent = {{-150, 85}, {150, 45}}, textString = "%name"), Polygon(origin = {68, -60}, rotation = -90, lineColor = {255, 0, 0}, fillColor = {255, 0, 0}, fillPattern = FillPattern.Solid, points = {{0, 10}, {12, -12}, {-12, -12}, {0, 10}}), Rectangle(origin = {-8, -57.5}, rotation = 90, lineColor = {255, 0, 0}, fillColor = {255, 0, 0}, fillPattern = FillPattern.Solid, extent = {{-7, 69}, {3, -69}})}, coordinateSystem(initialScale = 0.1)));
-  end Convection;
-  
-  
-
-end Components;
+        model Convection
+          extends DSFLib.Hydraulics.Interfaces.TwoPort;
+          DSFLib.Thermal.Interfaces.HeatPort heatPort_a annotation(
+            Placement(visible = true, transformation(origin = {100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {100, -60}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
+          DSFLib.Thermal.Interfaces.HeatPort heatPort_b annotation(
+            Placement(visible = true, transformation(origin = {-100, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, -60}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
+          Temperature T;
+          HeatFlow q_heat;
+          parameter Real rho(unit = "Kg/m3") = 1000 "Fluid density";
+          parameter Real c(unit = "J/K/Kg") = 4184 "Fluid specific heat capacity";
+        equation
+          p = 0;
+          q_heat = heatPort_b.q;
+          q_heat = -heatPort_a.q;
+          T = if q >= 0 then heatPort_b.T else heatPort_a.T;
+          q_heat = rho*c*q*T;
+          annotation(
+            Icon(graphics = {Rectangle(origin = {2, -51}, rotation = 90, fillColor = {0, 170, 255}, fillPattern = FillPattern.VerticalCylinder, extent = {{-49, 102}, {91, -98}}), Polygon(origin = {68, 0}, rotation = -90, lineColor = {0, 170, 255}, fillColor = {0, 170, 255}, fillPattern = FillPattern.Solid, points = {{0, 10}, {12, -12}, {-12, -12}, {0, 10}}), Rectangle(origin = {-8, 2.5}, rotation = 90, lineColor = {0, 170, 255}, fillColor = {0, 170, 255}, fillPattern = FillPattern.Solid, extent = {{-7, 69}, {3, -69}}), Text(origin = {0, 18}, textColor = {0, 0, 255}, extent = {{-150, 85}, {150, 45}}, textString = "%name"), Polygon(origin = {68, -60}, rotation = -90, lineColor = {255, 0, 0}, fillColor = {255, 0, 0}, fillPattern = FillPattern.Solid, points = {{0, 10}, {12, -12}, {-12, -12}, {0, 10}}), Rectangle(origin = {-8, -57.5}, rotation = 90, lineColor = {255, 0, 0}, fillColor = {255, 0, 0}, fillPattern = FillPattern.Solid, extent = {{-7, 69}, {3, -69}})}, coordinateSystem(initialScale = 0.1)));
+        end Convection;
+      end Components;
 
       package Examples
-         
-model SolarCollector
+        model SolarCollector
           DSFLib.Thermal.Components.HeatCapacitor fluid(C = 4184) annotation(
             Placement(visible = true, transformation(origin = {8, -16}, extent = {{-10, 10}, {10, -10}}, rotation = 0)));
           DSFLib.Thermal.Components.HeatCapacitor collector(C = 1000) annotation(
@@ -2033,58 +1905,58 @@ model SolarCollector
         end SolarCollector;
 
         model ProblemaParcial
-  Hydraulics.Components.ConstPress constPress annotation(
+          Hydraulics.Components.ConstPress constPress annotation(
             Placement(transformation(origin = {-88, 32}, extent = {{-10, -10}, {10, 10}})));
-  Hydraulics.Components.IdealPump idealPump annotation(
+          Hydraulics.Components.IdealPump idealPump annotation(
             Placement(transformation(origin = {-58, 32}, extent = {{-10, -10}, {10, 10}})));
-  Thermal.Components.ConstTemp constTemp annotation(
+          Thermal.Components.ConstTemp constTemp annotation(
             Placement(transformation(origin = {-66, -6}, extent = {{-10, -10}, {10, 10}})));
-  Hydraulics.Components.Tank tank annotation(
+          Hydraulics.Components.Tank tank annotation(
             Placement(transformation(origin = {10, 50}, extent = {{-10, -10}, {10, 10}})));
-  DSFLib.MultiDomain.HydroThermal.Components.Convection convection1 annotation(
+          DSFLib.MultiDomain.HydroThermal.Components.Convection convection1 annotation(
             Placement(transformation(origin = {36, 30}, extent = {{-10, -10}, {10, 10}})));
-  Components.Convection convection2 annotation(
+          Components.Convection convection2 annotation(
             Placement(transformation(origin = {-20, 32}, extent = {{-10, -10}, {10, 10}})));
-  Hydraulics.Components.Valve valve annotation(
+          Hydraulics.Components.Valve valve annotation(
             Placement(transformation(origin = {72, 28}, extent = {{-10, -10}, {10, 10}})));
-  Hydraulics.Components.ConstPress constPress1 annotation(
+          Hydraulics.Components.ConstPress constPress1 annotation(
             Placement(transformation(origin = {80, 2}, extent = {{-10, -10}, {10, 10}})));
-  Thermal.Components.ThermalResistor thermalResistor annotation(
+          Thermal.Components.ThermalResistor thermalResistor annotation(
             Placement(transformation(origin = {14, -6}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Thermal.Components.HeatCapacitor heatCapacitor annotation(
+          Thermal.Components.HeatCapacitor heatCapacitor annotation(
             Placement(transformation(origin = {14, -38}, extent = {{-10, -10}, {10, 10}})));
-  ElectroThermal.Components.HeatingResistor heatingResistor annotation(
+          ElectroThermal.Components.HeatingResistor heatingResistor annotation(
             Placement(transformation(origin = {-28, -36}, extent = {{-10, -10}, {10, 10}})));
-  Circuits.Components.ConstVolt constVolt annotation(
+          Circuits.Components.ConstVolt constVolt annotation(
             Placement(transformation(origin = {-28, -72}, extent = {{-10, -10}, {10, 10}})));
         equation
-  connect(constVolt.p, heatingResistor.p) annotation(
+          connect(constVolt.p, heatingResistor.p) annotation(
             Line(points = {{-38, -72}, {-38, -36}}));
-  connect(constVolt.n, heatingResistor.n) annotation(
+          connect(constVolt.n, heatingResistor.n) annotation(
             Line(points = {{-18, -72}, {-18, -36}}));
-  connect(thermalResistor.heatPort_a, heatCapacitor.heatPort) annotation(
+          connect(thermalResistor.heatPort_a, heatCapacitor.heatPort) annotation(
             Line(points = {{14, -16}, {14, -46}}));
-  connect(thermalResistor.heatPort_b, convection2.heatPort_a) annotation(
+          connect(thermalResistor.heatPort_b, convection2.heatPort_a) annotation(
             Line(points = {{14, 4}, {-10, 4}, {-10, 26}}));
-  connect(thermalResistor.heatPort_b, convection1.heatPort_b) annotation(
+          connect(thermalResistor.heatPort_b, convection1.heatPort_b) annotation(
             Line(points = {{14, 4}, {26, 4}, {26, 24}}));
-  connect(convection2.fluidPort_a, convection1.fluidPort_b) annotation(
+          connect(convection2.fluidPort_a, convection1.fluidPort_b) annotation(
             Line(points = {{-10, 32}, {26, 32}, {26, 30}}));
-  connect(convection1.fluidPort_a, valve.fluidPort_b) annotation(
+          connect(convection1.fluidPort_a, valve.fluidPort_b) annotation(
             Line(points = {{46, 30}, {62, 30}, {62, 28}}));
-  connect(valve.fluidPort_a, constPress1.fluidPort) annotation(
+          connect(valve.fluidPort_a, constPress1.fluidPort) annotation(
             Line(points = {{82, 28}, {90, 28}, {90, 2}}));
-  connect(constPress.fluidPort, idealPump.fluidPort_b) annotation(
+          connect(constPress.fluidPort, idealPump.fluidPort_b) annotation(
             Line(points = {{-78, 32}, {-68, 32}}));
-  connect(idealPump.fluidPort_a, convection2.fluidPort_b) annotation(
+          connect(idealPump.fluidPort_a, convection2.fluidPort_b) annotation(
             Line(points = {{-48, 32}, {-30, 32}}));
-  connect(constTemp.heatPort, convection2.heatPort_b) annotation(
+          connect(constTemp.heatPort, convection2.heatPort_b) annotation(
             Line(points = {{-56, -6}, {-30, -6}, {-30, 26}}));
-  connect(heatingResistor.heatPort, heatCapacitor.heatPort) annotation(
+          connect(heatingResistor.heatPort, heatCapacitor.heatPort) annotation(
             Line(points = {{-28, -50}, {14, -50}, {14, -46}}));
-        annotation(
+          annotation(
             Diagram);
-end ProblemaParcial;
+        end ProblemaParcial;
       end Examples;
     end HydroThermal;
 
@@ -2191,9 +2063,11 @@ end ProblemaParcial;
       package Components
         block Integrator
           extends DSFLib.ControlSystems.Blocks.Interfaces.SISO(y.start = y_0);
-          parameter Real y_0 = 0; // Condicion inicial
+          parameter Real y_0 = 0;
+          // Condicion inicial
         equation
-          der(y) = u; // derivada(salida) = (entrada) --> definidos en SISO
+          der(y) = u;
+// derivada(salida) = (entrada) --> definidos en SISO
           annotation(
             Icon(graphics = {Bitmap(origin = {-2, 2}, extent = {{90, 82}, {-90, -82}}, imageSource = "iVBORw0KGgoAAAANSUhEUgAAAC4AAABcCAYAAAARU4f9AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQCSURBVHic7ZtLbE1BGMd/+qDe9agq9Wix8IgEQSQshB2xQCKxsbXASiI2EqzsEJFILHQhNixYEalIhISIRNBoqVSjGvEoFbSathZzj557zszc05xvzp0m95+cRb+Z+ebX737nzJk5M1B81QHHgGbgEzAA9ALtwA3gEDCraHQajQdOA7+B4dz1E3gNtAJ9IXsfcAaYUhTSkGYBjxgB6wB2AhWhOuXABuAs0J+r9xyYlyVoWFXkQ7/DngqVwAlgKFf/KerXylxXGYEeArZY6k4DHobqB9dhx4wx7Y0ANBeof4Y49DDwxCFjTJOBzgjA7gJtWtCD97rDjOtopPPfwIQCbdrQg391h5mvCuB9pPO7CdqdRw/e5AYzrj2azo8naDcduBNpdx+Y7YRSo+vEwbePov1aYB+wTh7NrKnkj47BVbSBJKl2EYfuSeu0LK2DBNqqsbWkdZoF+GaNrSOtU9fgZcByjb1LwrFLNaBGzKi60zp2Db7KYPcefKXB/jGtY9fgKwz2z2kdFyviXxz3m1o/iQ8+g6hpmbeqxeErqctUWWKwi6SJS/BGg70UcVdqMNjHbMS9Bx+TOT4RtZipk9c53giMM5R5HfHFljKvwRdZyrxOlQWWMq/BFxrsIjN8yD7ivcBfiQ6yjrjYYqUL8HLMq1RiEwgX4HWozx86eR1x2xPFa3DbMzz17D6QC3DTjQkC6ymBXIDXW8q8jrjprRAE1gwDuQCvtZR5HXET+DCCOe5C39Gvp6RedgtLOuJVqC9lOomlCciD11jKRNNEGnyupaxTsiNpcNsTxWvwOZYyr8FtOT5mwTskO5IGN21RGkRwuAd5cNOuhm7UtjwxZRXx98L9ZBZx0RsTShEH1Oy+2lDmdcRnWPx5HXHbPql2wX6AbMCHEB58QBbcdGN2oTb1iiqLiIunCWQT8XeCffxXCZxSqiRTKeLATI3tB462TEuC62Y/rYL+8yQFXoZ6V4nqlZB/bYcSqkW/z8p7cNNi/ksh/zFJgZu++4zJiPciPLMPyyX4M9TyshNJga/W2G4L+Xaqz8QX8nX/jFeaTxy6FfMOIREFxxArUYcwluU6vYVaNkui9RpbEw7zO1A98IL4Ibikhz4vRdoOYP/WKaZr6D82nUvYPnrw7oo8ol496MGTvCBtJB7tpW4w81WGeS93ktXVI5G/LwJvUxGNQo/RR/xUgXYNqG1KQf02YJI7zLgOEoe+WQCiHHgQqv8LlTaZqoKRw8/9wIEC9SuBy4xA/2F0JwVFVYN6BA6jzsBfADaRv0WpHNhB/uHnD+jPsmWqKuAk6mcPwPqBN7krfMB/EDXI6GY9mUg3LFcD+4FtwBrUt8tK4BvqVOA91LPfybJDUv0D7tQsfW31v+gAAAAASUVORK5CYII="), Text(textColor = {0, 0, 255}, extent = {{-150, 150}, {150, 110}}, textString = "%name")}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
         end Integrator;
@@ -2210,8 +2084,10 @@ end ProblemaParcial;
           Real ymat[1, 1];
         equation
           der(x) = A*x + B*u;
-          ymat = C*x + D*u; // Esto en vez de un escalar, devuelve una matriz 1x1
-          y = ymat[1, 1];   // Por eso acá se asigna a y como la componente de la matriz.
+          ymat = C*x + D*u;
+// Esto en vez de un escalar, devuelve una matriz 1x1
+          y = ymat[1, 1];
+// Por eso acá se asigna a y como la componente de la matriz.
           annotation(
             Icon(graphics = {Text(origin = {-2, 44}, extent = {{-90, 22}, {90, -22}}, textString = "x=Ax+Bu"), Text(origin = {-67, 69}, extent = {{-19, 17}, {19, -17}}, textString = ".", textStyle = {TextStyle.Bold}), Text(origin = {0, -30}, extent = {{-90, 22}, {90, -22}}, textString = "y=Cx+Du"), Text(textColor = {0, 0, 255}, extent = {{-150, 150}, {150, 110}}, textString = "%name")}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
         end StateSpace;
@@ -2271,7 +2147,8 @@ end ProblemaParcial;
           Interfaces.RealInput u2 annotation(
             Placement(visible = true, transformation(origin = {-110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
         equation
-          y = k1*u1 + k2*u2; // Si se quieren sumar mas, usar varias veces o hacer otra fc
+          y = k1*u1 + k2*u2;
+// Si se quieren sumar mas, usar varias veces o hacer otra fc
           annotation(
             Icon(graphics = {Rectangle(fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}}), Text(origin = {-63, 58}, extent = {{-29, 22}, {29, -22}}, textString = "%k1"), Text(origin = {-63, -58}, extent = {{-29, 22}, {29, -22}}, textString = "%k2"), Line(origin = {19.0908, -8}, points = {{0, 40}, {0, -40}}, thickness = 0.5), Line(origin = {19.6908, -8}, points = {{-40, 0}, {40, 0}}, thickness = 0.5), Text(textColor = {0, 0, 255}, extent = {{-150, 150}, {150, 110}}, textString = "%name")}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
         end Add;
@@ -2581,21 +2458,21 @@ end ProblemaParcial;
       end Thermal;
 
       package Planar
-      model Pos_Sensor
-        DSFLib.Mechanical.Planar.Interfaces.Frame frame annotation(
-          Placement(transformation(extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {-72, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-        DSFLib.ControlSystems.Blocks.Interfaces.RealOutput X annotation(
-          Placement(transformation(origin = {82, 46}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {82, 46}, extent = {{-10, -10}, {10, 10}})));
-        DSFLib.ControlSystems.Blocks.Interfaces.RealOutput Y annotation(
-          Placement(transformation(origin = {82, -32}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {82, -32}, extent = {{-10, -10}, {10, 10}})));
-      equation
-        X = frame.r[1];
-        Y = frame.r[2];
-        frame.f = {0, 0};
-        frame.tau = 0;
-        annotation(
-          Icon(graphics = {Text(textColor = {64, 64, 64}, extent = {{-150, 80}, {150, 120}}, textString = "%name"), Ellipse(fillColor = {245, 245, 245}, fillPattern = FillPattern.Solid, extent = {{-70, -70}, {70, 70}}), Line(points = {{22.9, 32.8}, {40.2, 57.3}}), Line(points = {{-37.6, 13.7}, {-65.8, 23.9}}), Polygon(rotation = -17.5, fillColor = {64, 64, 64}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{-5, 0}, {-2, 60}, {0, 65}, {2, 60}, {5, 0}, {-5, 0}}), Line(points = {{-22.9, 32.8}, {-40.2, 57.3}}), Ellipse(lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, extent = {{-12, -12}, {12, 12}}), Line(points = {{37.6, 13.7}, {65.8, 23.9}}), Line(points = {{0, 70}, {0, 40}}), Ellipse(fillColor = {64, 64, 64}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, extent = {{-7, -7}, {7, 7}}), Text(origin = {-90, 66}, extent = {{20, -116}, {160, -86}}, textString = "L")}));
-      end Pos_Sensor;
+        model Pos_Sensor
+          DSFLib.Mechanical.Planar.Interfaces.Frame frame annotation(
+            Placement(transformation(extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {-72, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+          DSFLib.ControlSystems.Blocks.Interfaces.RealOutput X annotation(
+            Placement(transformation(origin = {82, 46}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {82, 46}, extent = {{-10, -10}, {10, 10}})));
+          DSFLib.ControlSystems.Blocks.Interfaces.RealOutput Y annotation(
+            Placement(transformation(origin = {82, -32}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {82, -32}, extent = {{-10, -10}, {10, 10}})));
+        equation
+          X = frame.r[1];
+          Y = frame.r[2];
+          frame.f = {0, 0};
+          frame.tau = 0;
+          annotation(
+            Icon(graphics = {Text(textColor = {64, 64, 64}, extent = {{-150, 80}, {150, 120}}, textString = "%name"), Ellipse(fillColor = {245, 245, 245}, fillPattern = FillPattern.Solid, extent = {{-70, -70}, {70, 70}}), Line(points = {{22.9, 32.8}, {40.2, 57.3}}), Line(points = {{-37.6, 13.7}, {-65.8, 23.9}}), Polygon(rotation = -17.5, fillColor = {64, 64, 64}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, points = {{-5, 0}, {-2, 60}, {0, 65}, {2, 60}, {5, 0}, {-5, 0}}), Line(points = {{-22.9, 32.8}, {-40.2, 57.3}}), Ellipse(lineColor = {64, 64, 64}, fillColor = {255, 255, 255}, extent = {{-12, -12}, {12, 12}}), Line(points = {{37.6, 13.7}, {65.8, 23.9}}), Line(points = {{0, 70}, {0, 40}}), Ellipse(fillColor = {64, 64, 64}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, extent = {{-7, -7}, {7, 7}}), Text(origin = {-90, 66}, extent = {{20, -116}, {160, -86}}, textString = "L")}));
+        end Pos_Sensor;
       end Planar;
     end Sensors;
 
@@ -3372,7 +3249,8 @@ Table")}));
     package Functions
       function LookUpTable
         input Real x;
-        input Real[:] xdata; // Suponemos ordenados
+        input Real[:] xdata;
+        // Suponemos ordenados
         input Real[:] ydata;
         output Real y;
       protected
