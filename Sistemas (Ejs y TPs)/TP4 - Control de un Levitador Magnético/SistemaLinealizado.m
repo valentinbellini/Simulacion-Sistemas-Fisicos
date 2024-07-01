@@ -21,6 +21,7 @@ C = [0, 1, 0];
 D = [0];
 
 %Autovalores de la matriz A
+
 fprintf('Autovalores de la Matriz A del sistema linealizado: ');
 lambda = eig(A)
 fprintf('3 autovalores. 2 con parte real negativa y 1 con parte real positiva\n');
@@ -31,6 +32,8 @@ fprintf('Por HG como no hay autovalor con parte real nula, la trayectoria del pu
 % Por lo tanto por método indirecto de Lyapunov al tener al menos un autovalor con parte 
 % real positiva entonces el punto de equilibro es inestable
 
+
+% Problema 4:
 % Crear el sistema en espacio de estados
 sys = ss(A, B, C, D);
 
@@ -38,7 +41,7 @@ sys = ss(A, B, C, D);
 fprintf("Función transferencia del sistema linealizado: \n");
 G = tf(sys)
 
-%% problema 4 - Controlador PID
+% Controlador PID
 num = [1/(20^2) 2/20 1];
 den = [1 0];
 fprintf('Función transferencia del controlador PID:\n');
@@ -47,6 +50,8 @@ Gc = tf(num, den)
 %Ft lazo cerrado
 fprintf('\nFunción a lazo cerrado con K = 1:\n');
 Grel = feedback(G*Gc, 1)
+figure;
+rlocus(Grel);
 
 % Búsqueda iterativa de K
 fprintf('\nSe itera en varios valores de K para encontrar el mínimo valor de cumpla que el tau mas lento sea menor a 60 ms\n');
@@ -67,11 +72,5 @@ end
 
 fprintf('\nValor de K que cumple con la condición: %.5f\n', K_opt);
 disp(poles_opt);
-
-% Graficar los polos del sistema en lazo cerrado para K óptimo
 figure;
-plot(real(poles_opt), imag(poles_opt), 'rx', 'MarkerSize', 10, 'LineWidth', 2);
-xlabel('Parte Real');
-ylabel('Parte Imaginaria');
-title('Polos del Sistema en Lazo Cerrado');
-grid on;
+rlocus(feedback(K_opt*G*Gc,1));
