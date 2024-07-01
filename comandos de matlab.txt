@@ -1,0 +1,38 @@
+tf(num,den): 			construye una func trnasf. a partir de los polinomios "num" y "den".
+tf(sis):			construye una func trnasf. a partir del sistema "sis".
+[num,den]=tfdata(g):		devuelve el numerador y denominador de la FT g.
+ss(A,B,D,C):			crea un modelo en EE y ES a partir de las matrices A,B,C y D.
+ss(sis):			crea un modelo en EE y ES a partir del sistema "sis".
+ss(A,B,D,C,p):			caso discreto, crea un modelo en EED y ESD a partir de las matrices A,B,C y D. con periodo de muestreo "p", (para trabajar con un periodo generico: p=-1)
+c2d(sis,Ts): 			convierte un sistema 'sis' continuo a tiempo discreto. con periodo de muestre 'Ts'
+[A,B,C,D]=tf2ss(num,den): 	Pasa de representacion externa (funcion de transferencia) a interna (espacio de estados)
+[num,den] = ss2tf(A,B,C,D):	inversa del anterior.
+feedback(sis1,sis2):		devuelve un modelo de la interconeccion de realimentacion negativa entre los modelos "sis1" y "sis2".
+	
+linmod('nombre'):		genera las matrices A,B,C,D a partir de un DB en un archivo de simulink: "nombre".
+dlinmod('nombre',p):            genera las matrices A,B,C,D a partir de un DB en un archivo de simulink: "nombre". En tiempo discreto con periodo de muestreo p
+
+eig(A)                          calcula los autovalores de la matriz A
+
+
+step(sis):			grafica la respuesta al escalon del sistema "sis".
+[y11,xt]=step(g*u):		asigna a [y11,xt] los valores y tiempos de la respuesta la escalon.
+sim('nombre'):			simula el archivo "nombre" de simulink.
+stairs(Y):			dibuja un gráfico de escalera de los elementos en Y.
+rlocus(G):			grafica el lugar de las raices (LR) de la FT "G".
+rlocfind:			devuelve el valor de K para un polo seleccionado sobre el LR.
+[Gm,Pm,Wgm,Wpm]=margin(sys):	calcula el margen de ganancia Gm, el margen de fase Pm y las frecuencias correspondientes Wgm y Wpm, dado el sistema SISO de sistema de sistema dinámico de bucle abierto
+
+fir1				Esta función de MATLAB utiliza una ventana de Hamming para diseñar un filtro FIR de pasa bajo, pasa de banda o multibanda de orden n en orden n.
+filter(b,a,x):			Esta función de MATLAB filtra los datos de entrada x usando una función de transferencia racional definida por el numerador y los coeficientes de denominador b y a.
+
+
+[n,wn] = buttord(wp,wa,alphamax,alphamin,'s')
+[num,den]=butter(n,wn,'s')
+H = tf(num,den)
+
+n = cheb1ord(wp,wa,alphamax,alphamin,'s')
+[num,den] = cheby1(n,alphamax,wp,'s')
+H = tf(num,den)
+
+
