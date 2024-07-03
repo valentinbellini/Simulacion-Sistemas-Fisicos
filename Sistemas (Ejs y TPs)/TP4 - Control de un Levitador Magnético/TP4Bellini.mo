@@ -36,7 +36,7 @@ package TP4Bellini
       Placement(visible = true, transformation(origin = {-136, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     DSFLib.ControlSystems.Blocks.Components.Add add annotation(
       Placement(transformation(origin = {-90, 38}, extent = {{-10, -10}, {10, 10}})));
-    DSFLib.ControlSystems.Blocks.Components.StepSource stepSource1(U = 0) annotation(
+    DSFLib.ControlSystems.Blocks.Components.StepSource stepSource1(U = 0.01) annotation(
       Placement(visible = true, transformation(origin = {-136, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     TP4Bellini.CoilBall coilBall(i(start = io)) annotation(
       Placement(visible = true, transformation(origin = {19, 41}, extent = {{-31, 31}, {31, -31}}, rotation = -90)));
@@ -91,9 +91,9 @@ package TP4Bellini
     DSFLib.ControlSystems.Blocks.Interfaces.RealOutput realOutput annotation(
       Placement(transformation(origin = {150, -44}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {94, 0}, extent = {{-10, -10}, {10, 10}})));
     DSFLib.ControlSystems.Sensors.Mechanical.Translational.DistanceSensor distanceSensor annotation(
-      Placement(transformation(origin = {68, -8}, extent = {{10, -10}, {-10, 10}})));
+      Placement(transformation(origin = {62, -8}, extent = {{10, -10}, {-10, 10}})));
     DSFLib.Mechanical.Translational.Components.Fixed fixed annotation(
-      Placement(transformation(origin = {94, -14}, extent = {{-10, -10}, {10, 10}})));
+      Placement(transformation(origin = {86, -16}, extent = {{-10, -10}, {10, 10}})));
   equation
     connect(add.u1, stepSource.y) annotation(
       Line(points = {{-108, 42}, {-107.7, 42}, {-107.7, 68}, {-124, 68}}));
@@ -112,13 +112,13 @@ package TP4Bellini
     connect(mass.flange, constForce.flange) annotation(
       Line(points = {{36.89, -7.11}, {37, -7.11}, {37, -26}}));
     connect(realOutput, distanceSensor.y) annotation(
-      Line(points = {{150, -44}, {150, -41}, {68, -41}, {68, -20}}));
+      Line(points = {{150, -44}, {150, -41}, {62, -41}, {62, -20}}));
     connect(coilBall.flange, mass.flange) annotation(
       Line(points = {{37, 14}, {37, -7}}));
     connect(distanceSensor.flange_a, fixed.flange) annotation(
-      Line(points = {{78, -8}, {103, -8}, {103, -14}, {94, -14}}));
+      Line(points = {{72, -8}, {87, -8}, {87, -16}, {86, -16}}));
     connect(distanceSensor.flange_b, mass.flange) annotation(
-      Line(points = {{58, -8}, {36, -8}}));
+      Line(points = {{52, -8}, {36, -8}}));
     annotation(
       Icon(graphics = {Text(origin = {-4, 0}, extent = {{-76, 52}, {76, -52}}, textString = "MaglevSys"), Rectangle(origin = {10, 2}, extent = {{-104, 40}, {104, -40}})}, coordinateSystem(extent = {{-100, -100}, {120, 100}})),
       Diagram);
@@ -134,7 +134,7 @@ package TP4Bellini
     DSFLib.Mechanical.Translational.Components.Mass mass(m = 0.02, s(start = 0.00)) annotation(
       Placement(visible = true, transformation(origin = {37, -7}, extent = {{-11, -11}, {11, 11}}, rotation = 0)));
     DSFLib.ControlSystems.Actuators.Circuits.ModulatedVoltageSource controlledVoltage annotation(
-      Placement(visible = true, transformation(origin = {-59, 37}, extent = {{-13, -13}, {13, 13}}, rotation = -90)));
+      Placement(transformation(origin = {-61, 37}, extent = {{-13, -13}, {13, 13}}, rotation = -90)));
     DSFLib.Circuits.Components.Ground ground annotation(
       Placement(visible = true, transformation(origin = {-60, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     DSFLib.Mechanical.Translational.Components.ConstForce constForce(F = -mass.m*9.8) annotation(
@@ -152,7 +152,7 @@ package TP4Bellini
     DSFLib.ControlSystems.Sensors.Mechanical.Translational.DistanceSensor distanceSensor annotation(
       Placement(transformation(origin = {71, -7}, extent = {{9, -9}, {-9, 9}})));
     DSFLib.Mechanical.Translational.Components.Fixed fixed annotation(
-      Placement(transformation(origin = {92, -10}, extent = {{-10, -10}, {10, 10}})));
+      Placement(transformation(origin = {90, -16}, extent = {{-10, -10}, {10, 10}})));
     DSFLib.ControlSystems.Sensors.Mechanical.Translational.SpeedSensor speedSensor annotation(
       Placement(visible = true, transformation(origin = {-1, -7}, extent = {{-9, -9}, {9, 9}}, rotation = 0)));
     DSFLib.ControlSystems.Blocks.Interfaces.RealOutput realOutput1 annotation(
@@ -163,17 +163,17 @@ package TP4Bellini
     connect(add.u1, stepSource.y) annotation(
       Line(points = {{-108, 42}, {-107.7, 42}, {-107.7, 68}, {-124, 68}}));
     connect(add.y, controlledVoltage.u) annotation(
-      Line(points = {{-84, 36}, {-74, 36}, {-74, 37}}));
+      Line(points = {{-84, 36}, {-74, 36}, {-74, 37}, {-69, 37}}));
     connect(realInput, add.u2) annotation(
       Line(points = {{-136, 30}, {-108, 30}}));
     connect(coilBall.n, controlledVoltage.n) annotation(
-      Line(points = {{20, 16}, {-60, 16}, {-60, 24}}));
+      Line(points = {{20, 16}, {-60, 16}, {-60, 24}, {-61, 24}}));
     connect(controlledVoltage.p, resistor.p) annotation(
-      Line(points = {{-58, 50}, {-60, 50}, {-60, 71}, {-28, 71}}));
+      Line(points = {{-61, 50}, {-60, 50}, {-60, 71}, {-28, 71}}));
     connect(resistor.n, coilBall.p) annotation(
       Line(points = {{-2, 71}, {18, 71}}));
     connect(ground.p, controlledVoltage.n) annotation(
-      Line(points = {{-60, -2}, {-60, 24}}));
+      Line(points = {{-60, -2}, {-60, 11}, {-61, 11}, {-61, 24}}));
     connect(mass.flange, constForce.flange) annotation(
       Line(points = {{36.89, -7.11}, {37, -7.11}, {37, -26}}));
     connect(realOutput, distanceSensor.y) annotation(
@@ -189,7 +189,7 @@ package TP4Bellini
     connect(mass.flange, distanceSensor.flange_b) annotation(
       Line(points = {{36, -8}, {54, -8}, {54, -7}, {62, -7}}));
     connect(distanceSensor.flange_a, fixed.flange) annotation(
-      Line(points = {{80, -7}, {103, -7}, {103, -10}, {92, -10}}));
+      Line(points = {{80, -7}, {95, -7}, {95, -16}, {90, -16}}));
     annotation(
       Icon(graphics = {Text(origin = {-4, 0}, extent = {{-76, 52}, {76, -52}}, textString = "MaglevSys"), Rectangle(origin = {10, 2}, extent = {{-104, 40}, {104, -40}})}, coordinateSystem(extent = {{-100, -100}, {120, 100}})),
       Diagram);
@@ -197,9 +197,9 @@ package TP4Bellini
 
   model MaglevSysControlado
   DSFLib.ControlSystems.Blocks.Components.Add add1(k2 = 0.05) annotation(
-      Placement(visible = true, transformation(origin = {-4, 34}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+      Placement(transformation(origin = {0, 30}, extent = {{14, -14}, {-14, 14}})));
     DSFLib.ControlSystems.Blocks.Components.StepSource yref(U = 0.0) annotation(
-      Placement(visible = true, transformation(origin = {-84, 86}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+      Placement(transformation(origin = {-86, 84}, extent = {{-10, -10}, {10, 10}})));
     DSFLib.ControlSystems.Blocks.Components.Gain gain(K = 3843) annotation(
       Placement(visible = true, transformation(origin = {-14, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
     DSFLib.ControlSystems.Blocks.Components.Add add(k2 = -1) annotation(
@@ -210,17 +210,17 @@ package TP4Bellini
       Placement(visible = true, transformation(origin = {59.4545, 78.9091}, extent = {{-15.4545, -15.4545}, {18.5455, 15.4545}}, rotation = 0)));
   equation
     connect(add1.y, add.u2) annotation(
-      Line(points = {{-16, 33.8}, {-68, 33.8}, {-68, 73.8}, {-58, 73.8}}));
+      Line(points = {{-15, 30}, {-68, 30}, {-68, 73.8}, {-58, 73.8}}));
     connect(gain.y, transferFunction.u) annotation(
       Line(points = {{-2.2, 80}, {7.8, 80}}));
     connect(yref.y, add.u1) annotation(
-      Line(points = {{-72.4, 86}, {-58.4, 86}}));
+      Line(points = {{-75, 84}, {-66.7, 84}, {-66.7, 86}, {-58.4, 86}}));
     connect(gain.u, add.y) annotation(
       Line(points = {{-25.7, 80.1}, {-33.7, 80.1}}));
     connect(MaglevSys2.realOutput, add1.u1) annotation(
-      Line(points = {{78, 82.9273}, {92, 82.9273}, {92, 40.9273}, {8, 40.9273}}));
+      Line(points = {{78, 82.9273}, {92, 82.9273}, {92, 38}, {15, 38}}));
     connect(MaglevSys2.realOutput1, add1.u2) annotation(
-      Line(points = {{78, 74.8909}, {82, 74.8909}, {82, 28.8909}, {8, 28.8909}}));
+      Line(points = {{78, 74.8909}, {82, 74.8909}, {82, 22}, {15, 22}}));
     connect(transferFunction.y, MaglevSys2.realInput) annotation(
       Line(points = {{31.8, 80}, {43.8, 80}, {43.8, 78}}));
     annotation(
@@ -236,8 +236,8 @@ package TP4Bellini
     parameter Real c = 30;
     parameter Real i0 = sqrt((2*m*g*y0)/L0);
     
-    Real x1(start = 0.0); // Posicion
-    Real x2(start = -0.1); // Velocidad
+    Real x1(start = 0.001); // Posicion
+    Real x2(start = 0.0); // Velocidad
     Real u;  // Entrada de corriente (La despeja Modelica a traves de las DAEs)
     
   equation
@@ -259,7 +259,7 @@ package TP4Bellini
     parameter Real C[p, n] = [0, 1, 0];
     parameter Real D[p, m] = [0];
     Real x[n](start = x0);
-    input Real u[m](start = u0);
+    input Real u[m](start = u0);  
     output Real y[p];
     Real 'x_coillBall.i' = x[1];
     Real 'x_coillBall.y' = x[2];
@@ -281,7 +281,7 @@ package TP4Bellini
     parameter Real yref = 0.00;
     parameter Real i0 = sqrt((2*m*g*y0)/L0);
     
-    Real x1(start = 0.002); // Posicion
+    Real x1(start = 0.001); // Posicion
     Real x2;  // Velocidad
     Real u;   // Entrada de corriente
     
@@ -297,7 +297,7 @@ package TP4Bellini
     parameter Real io = sqrt((2*mass.m*g*coilBall.yo)/coilBall.Lo);
     DSFLib.Circuits.Components.Resistor resistor(R = 1) annotation(
       Placement(visible = true, transformation(origin = {-15, 71}, extent = {{-13, -13}, {13, 13}}, rotation = 0)));
-    DSFLib.Mechanical.Translational.Components.Mass mass(m = 0.02, s(start = 0.001)) annotation(
+    DSFLib.Mechanical.Translational.Components.Mass mass(m = 0.02, s(start = 0.002)) annotation(
       Placement(visible = true, transformation(origin = {37, -7}, extent = {{-11, -11}, {11, 11}}, rotation = 0)));
     DSFLib.ControlSystems.Actuators.Circuits.ModulatedCurrentSource controlledCurrent annotation(
       Placement(visible = true, transformation(origin = {-59, 37}, extent = {{-13, -13}, {13, 13}}, rotation = -90)));
@@ -362,7 +362,7 @@ package TP4Bellini
   end MaglevSys_LY;
 
   block LyCont
-  DSFLib.ControlSystems.Blocks.Interfaces.RealOutput u annotation(
+    DSFLib.ControlSystems.Blocks.Interfaces.RealOutput u annotation(
       Placement(transformation(origin = {70, 0}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {70, 0}, extent = {{-10, -10}, {10, 10}})));
     DSFLib.ControlSystems.Blocks.Interfaces.RealInput x1 annotation(
       Placement(transformation(origin = {-70, 32}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {-70, 30}, extent = {{-10, -10}, {10, 10}})));
@@ -372,7 +372,7 @@ package TP4Bellini
     parameter Real L0 = 5.5181e-3;
     parameter Real m = 0.02;
     parameter Real g = 9.8;
-    parameter Real c = 30;
+    parameter Real c = 10; // Constante de amortiguamiento ?
     parameter Real i0 = sqrt((2*m*g*y0)/L0);
   equation
     u = sqrt((2*m*(y0 - x1)^2/(L0*y0))*(-c*x2 + g - 2*x1*(y0 - x1) - (x1^2)/((y0 - x1)^2))) - i0;
@@ -382,16 +382,16 @@ package TP4Bellini
   end LyCont;
 
   model ControlLY
-  MaglevSys_LY maglevSys_LY annotation(
-      Placement(transformation(origin = {0, 56}, extent = {{-11, -10}, {11, 10}})));
-  LyCont lyCont annotation(
+    MaglevSys_LY maglevSys_LY annotation(
+      Placement(transformation(origin = {-2, 56}, extent = {{-11, -10}, {11, 10}})));
+    LyCont lyCont annotation(
       Placement(transformation(origin = {38, 56}, extent = {{-10, -10}, {10, 10}})));
   equation
-  connect(maglevSys_LY.realOutput, lyCont.x1) annotation(
-      Line(points = {{12, 59}, {31, 59}}, color = {0, 0, 127}));
-  connect(maglevSys_LY.realOutput1, lyCont.x2) annotation(
-      Line(points = {{12, 53}, {31, 53}}, color = {0, 0, 127}));
-  connect(lyCont.u, maglevSys_LY.realInput) annotation(
-      Line(points = {{45, 56}, {48, 56}, {48, 40}, {-20, 40}, {-20, 56}, {-10, 56}}, color = {0, 0, 127}));
+    connect(maglevSys_LY.realOutput, lyCont.x1) annotation(
+      Line(points = {{10, 59}, {31, 59}}, color = {0, 0, 127}));
+    connect(maglevSys_LY.realOutput1, lyCont.x2) annotation(
+      Line(points = {{10, 53}, {31, 53}}, color = {0, 0, 127}));
+    connect(lyCont.u, maglevSys_LY.realInput) annotation(
+      Line(points = {{45, 56}, {48, 56}, {48, 40}, {-20, 40}, {-20, 56}, {-12, 56}}, color = {0, 0, 127}));
   end ControlLY;
 end TP4Bellini;
