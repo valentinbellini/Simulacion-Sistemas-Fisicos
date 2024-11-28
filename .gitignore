@@ -29,6 +29,13 @@ __pycache__/
 *.so
 *.dylib
 
+
+*.asv
+*.slxc
+*.autosave
+slprj
+~*.docx
+
 # misc
 .env
 notes.txt
